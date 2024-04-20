@@ -25,8 +25,11 @@ fun AppNavHost(
             LoginScreen(navController = navHostController)
         }
 
-        composable(route = Home.route) {
-            HomeScreen(navController = navHostController)
+        composable(route = "${Home.route}/{username}") { backStackEntry ->
+            HomeScreen(
+                navController = navHostController,
+                backStackEntry.arguments?.getString("username")
+            )
         }
 
 

@@ -10,7 +10,6 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.text.input.PasswordVisualTransformation
-import androidx.compose.ui.text.input.TextFieldValue
 import androidx.compose.ui.text.input.VisualTransformation
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
@@ -19,14 +18,15 @@ import androidx.navigation.NavController
 import com.arlib.task.R
 import com.arlib.task.components.CustomDefaultBtn
 import com.arlib.task.components.CustomTextField
+import com.arlib.task.navigation.Home
 
 @Composable
 fun LoginScreen(
     navController: NavController
 ) {
 
-    var email by remember { mutableStateOf(TextFieldValue("")) }
-    var password by remember { mutableStateOf(TextFieldValue("")) }
+    var username by remember { mutableStateOf(" ") }
+    var password by remember { mutableStateOf("") }
 
     Column(
         modifier = Modifier
@@ -63,7 +63,7 @@ fun LoginScreen(
             label = stringResource(R.string.username),
             keyboardType = KeyboardType.Email,
             visualTransformation = VisualTransformation.None,
-            onChange = { newEmail -> email = newEmail }
+            onChange = { newEmail -> username = newEmail.text }
         )
         Spacer(modifier = Modifier.height(20.dp))
         CustomTextField(
@@ -71,12 +71,14 @@ fun LoginScreen(
             label = stringResource(R.string.password),
             keyboardType = KeyboardType.Password,
             visualTransformation = PasswordVisualTransformation(),
-            onChange = { newPass -> password = newPass }
+            onChange = { newPass -> password = newPass.text }
         )
         Spacer(modifier = Modifier.height(10.dp))
 
-        CustomDefaultBtn(shapeSize = 50f, btnText = stringResource(R.string.login)) {
-
-        }
+        CustomDefaultBtn(
+            shapeSize = 50f,
+            btnText = stringResource(R.string.login),
+            onClick = { navController.navigate("${Home.route}/$username") }
+        )
     }
 }

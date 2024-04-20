@@ -14,7 +14,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.navigation.compose.rememberNavController
 import com.arlib.task.navigation.AppNavHost
 import com.arlib.task.ui.theme.ArlibTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -30,7 +32,6 @@ class MainActivity : ComponentActivity() {
 private fun ShowScreen(
     modifier: Modifier = Modifier,
 ) {
-    // A surface container using the 'background' color from the theme
     Surface(
         modifier = modifier.fillMaxSize(),
         color = MaterialTheme.colorScheme.background
