@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">Arlib</string>
+    <string name="username">username</string>
+    <string name="password">Password</string>
+    <string name="signin_with_username_and_pass">Sign in with your username and password</string>
+    <string name="login">Login</string>
+    <string name="welcome_back">Welcome Back</string>
 </resources>
