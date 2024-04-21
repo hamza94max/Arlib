@@ -15,6 +15,8 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.arlib.task.components.ErrorText
 import com.arlib.task.components.Loading
+import com.arlib.task.domain.models.DrugsResponse
+import com.arlib.task.ui.home.components.DrugList
 import com.arlib.task.utils.Resource
 import com.arlib.task.utils.Utils.getGreeting
 
@@ -54,7 +56,7 @@ fun HomeScreen(
                 if (drugs.isNullOrEmpty()) {
                     Text(text = "No drugs found")
                 } else {
-                    Text(text = "data is $drugs")
+                    DrugList((drugsState as Resource.Success<DrugsResponse>).data.drugs)
                 }
             }
         }
