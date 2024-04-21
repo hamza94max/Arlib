@@ -15,16 +15,16 @@ import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
 import com.arlib.task.components.ErrorText
 import com.arlib.task.components.Loading
-import com.arlib.task.domain.models.DrugsResponse
+import com.arlib.task.domain.models.Drug
 import com.arlib.task.ui.home.components.DrugList
 import com.arlib.task.utils.Resource
 import com.arlib.task.utils.Utils.getGreeting
 
 @Composable
 fun HomeScreen(
-    navController: NavController,
     username: String?,
     drugsViewModel: DrugsViewModel = hiltViewModel(),
+    navController: NavController
 ) {
 
     val drugsState by drugsViewModel.drugsFlow.collectAsState(initial = Resource.Idle)
@@ -52,11 +52,14 @@ fun HomeScreen(
                 ErrorText(message = "Error: ${(drugsState as Resource.Error).exception.message}")
             }
             is Resource.Success<*> -> {
-                val drugs = (drugsState as Resource.Success).data.drugs
+                val drugs = (drugsState as Resource.Success).data
                 if (drugs.isNullOrEmpty()) {
                     Text(text = "No drugs found")
                 } else {
-                    DrugList((drugsState as Resource.Success<DrugsResponse>).data.drugs)
+                    DrugList(
+                        (drugsState as Resource.Success<List<Drug>>).data,
+                        navController
+                    )
                 }
             }
         }

@@ -1,11 +1,14 @@
 package com.arlib.task.navigation
 
+import android.util.Log
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.arlib.task.domain.models.Drug
+import com.arlib.task.ui.drugDetails.DrugDetailsScreen
 import com.arlib.task.ui.home.HomeScreen
 import com.arlib.task.ui.login.LoginScreen
 
@@ -27,9 +30,15 @@ fun AppNavHost(
 
         composable(route = "${Home.route}/{username}") { backStackEntry ->
             HomeScreen(
-                navController = navHostController,
-                backStackEntry.arguments?.getString("username")
+                backStackEntry.arguments?.getString("username"), navController = navHostController
             )
+        }
+
+        composable(route = DrugDetails.route) {
+            val result =
+                navHostController.previousBackStackEntry?.savedStateHandle?.get<Drug>("drug")
+            Log.i("hamzaLOOK", "resutl is " + result.toString())
+            result?.let { it1 -> DrugDetailsScreen(it1) }
         }
 
 

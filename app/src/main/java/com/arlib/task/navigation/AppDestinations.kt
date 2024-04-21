@@ -11,3 +11,7 @@ object Login : AppDestinations {
 object Home : AppDestinations {
     override val route = "home"
 }
+
+object DrugDetails : AppDestinations {
+    override val route = "drugDetails"
+}
