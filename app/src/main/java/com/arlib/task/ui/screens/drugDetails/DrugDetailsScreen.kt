@@ -1,4 +1,4 @@
-package com.arlib.task.ui.drugDetails
+package com.arlib.task.ui.screens.drugDetails
 
 import android.util.Log
 import androidx.compose.foundation.BorderStroke

@@ -1,4 +1,4 @@
-package com.arlib.task.ui.home
+package com.arlib.task.ui.screens.home
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text
@@ -16,7 +16,7 @@ import androidx.navigation.NavController
 import com.arlib.task.components.ErrorText
 import com.arlib.task.components.Loading
 import com.arlib.task.domain.models.Drug
-import com.arlib.task.ui.home.components.DrugList
+import com.arlib.task.ui.screens.home.components.DrugList
 import com.arlib.task.utils.Resource
 import com.arlib.task.utils.Utils.getGreeting
 

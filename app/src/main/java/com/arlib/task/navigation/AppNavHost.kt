@@ -8,9 +8,9 @@ import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import com.arlib.task.domain.models.Drug
-import com.arlib.task.ui.drugDetails.DrugDetailsScreen
-import com.arlib.task.ui.home.HomeScreen
-import com.arlib.task.ui.login.LoginScreen
+import com.arlib.task.ui.screens.drugDetails.DrugDetailsScreen
+import com.arlib.task.ui.screens.home.HomeScreen
+import com.arlib.task.ui.screens.login.LoginScreen
 
 
 @Composable

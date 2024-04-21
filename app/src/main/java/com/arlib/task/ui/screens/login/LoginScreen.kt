@@ -1,4 +1,4 @@
-package com.arlib.task.ui.login
+package com.arlib.task.ui.screens.login
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.Text

@@ -1,4 +1,4 @@
-package com.arlib.task.ui.home
+package com.arlib.task.ui.screens.home
 
 
 import androidx.lifecycle.ViewModel

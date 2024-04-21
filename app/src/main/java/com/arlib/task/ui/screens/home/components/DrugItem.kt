@@ -1,4 +1,4 @@
-package com.arlib.task.ui.home.components
+package com.arlib.task.ui.screens.home.components
 
 import android.util.Log
 import androidx.compose.foundation.BorderStroke
