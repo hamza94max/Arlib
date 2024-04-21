@@ -4,6 +4,7 @@ plugins {
     id 'androidx.navigation.safeargs'
     id 'kotlin-kapt'
     id 'dagger.hilt.android.plugin'
+    id 'kotlin-parcelize'
 }
 
 android {
@@ -84,6 +85,7 @@ dependencies {
     // retrofit
     implementation 'com.squareup.retrofit2:retrofit:2.9.0'
     implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    implementation 'com.google.code.gson:gson:2.8.8'
 
 
     // coroutines
